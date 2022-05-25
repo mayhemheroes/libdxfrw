@@ -1,0 +1,12 @@
+FROM --platform=linux/amd64 ubuntu:20.04
+
+RUN apt-get update
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y automake pkg-config libtool build-essential
+
+COPY . /repo
+WORKDIR /repo
+RUN autoreconf -if
+RUN ./configure
+RUN make -j8
+RUN make install
+ENV LD_LIBRARY_PATH=/repo/src/.libs
