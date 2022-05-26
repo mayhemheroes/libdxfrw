@@ -1,5 +1,5 @@
 project: rnshah9/libdxfrw
-target: libdxfrw
+target: dwg2text
 tests:
   - file://test.dwg
 
