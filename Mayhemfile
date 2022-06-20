@@ -1,8 +1,8 @@
-project: rnshah9/libdxfrw
+project: libdxfrw
 target: dwg2text
-tests:
+testsuite:
   - file://test.dwg
 
 cmds:
-  - cmd: /repo/dwg2text/.libs/dwg2text @@
+  - cmd: /repo/dwg2text/.libs/dwg2text /test.dwg
     filepath: /test.dwg
