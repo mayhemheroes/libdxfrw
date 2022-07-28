@@ -1,7 +1,7 @@
 project: libdxfrw
 target: dwg2text
 testsuite:
-  - file:/@@
+  - file://test.dwg
 
 cmds:
   - cmd: /install/bin/dwg2text @@
