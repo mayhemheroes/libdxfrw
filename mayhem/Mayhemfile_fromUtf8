@@ -1,0 +1,6 @@
+project: libdxfrw
+target: fromutf8
+
+cmds:
+  - cmd: /fuzz_fromUtf8
+    libfuzzer: true
