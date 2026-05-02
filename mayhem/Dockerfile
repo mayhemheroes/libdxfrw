@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 ubuntu:20.04 as builder
+FROM ubuntu:20.04 AS builder
 
 RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y automake pkg-config libtool build-essential clang
@@ -11,6 +11,6 @@ RUN make -j8
 RUN make install
 RUN clang++ /repo/mayhem/fuzz_fromUtf8.cpp -fsanitize=fuzzer,address -I /repo/src/intern/ /install/lib/libdxfrw.a -o /fuzz
 
-FROM ubuntu:20.04 as package
+FROM ubuntu:20.04 AS package
 COPY --from=builder /install /install
 COPY --from=builder /fuzz /fuzz_fromUtf8
